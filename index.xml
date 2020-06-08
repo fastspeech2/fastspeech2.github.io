@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>FastSpeech 2</title>
+      <title>FastSpeech 2: Fast and High-Quality End-to-End Text-to-Speech</title>
       <link>https://fastspeech2.github.io/fastspeech2/</link>
       <pubDate>Wed, 20 May 2020 15:30:00 +0901</pubDate>
       
       <guid>https://fastspeech2.github.io/fastspeech2/</guid>
-      <description>Demo </description>
+      <description>FastSpeech: Fast, Robust and Controllable Text to Speech -- Authors  Yi Ren* (Zhejiang University) rayeren@zju.edu.cn Chenxu Hu* (Zhejiang University) chenxuhu@zju.edu.cn Xu Tan (Microsoft Research) xuta@microsoft.com Tao Qin (Microsoft Research) taoqin@microsoft.com Sheng Zhao (Microsoft Azure Speech) Sheng.Zhao@microsoft.com Zhou Zhao (Zhejiang University) zhaozhou@zju.edu.cn Tie-Yan Liu (Microsoft Research) tyliu@microsoft.com  * Equal contribution.
+Abstract Advanced text-to-speech (TTS) models such as FastSpeech~\cite{ren2019fastspeech} can synthesize speech significantly faster than previous autoregressive models with comparable quality.</description>
     </item>
     
   </channel>

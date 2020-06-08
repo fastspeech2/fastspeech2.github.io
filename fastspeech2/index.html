@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="../css/custom.css">
 <link rel="alternate" href="index.xml" type="application/rss+xml" title="FastSpeech2">
 <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<title>FastSpeech 2 - FastSpeech2</title>
+<title>FastSpeech 2: Fast and High-Quality End-to-End Text-to-Speech - FastSpeech2</title>
 </head>
 <body>
 
@@ -27,10 +27,105 @@
 
 	<main role="main">
 		<article itemscope itemtype="https://schema.org/BlogPosting">
-            <h1 class="entry-title" itemprop="headline">FastSpeech 2</h1>
+            <h1 class="entry-title" itemprop="headline">FastSpeech 2: Fast and High-Quality End-to-End Text-to-Speech</h1>
 			
 			<section itemprop="entry-text">
-				<h2 id="demo">Demo</h2>
+				<!-- Paper: <a href="../papers/fastspeech_2019.pdf">FastSpeech: Fast, Robust and Controllable Text to Speech</a> -->
+<!-- ArXiv: [arXiv:1905.09263](https://arxiv.org/abs/1905.09263) -->
+<!-- Reddit Discussions: [Click me](https://www.reddit.com/r/MachineLearning/comments/brzwi5/r_fastspeech_fast_robust_and_controllable_text_to/) -->
+<h2 id="authors">Authors</h2>
+<ul>
+<li>Yi Ren* (Zhejiang University) <a href="mailto:rayeren@zju.edu.cn">rayeren@zju.edu.cn</a></li>
+<li>Chenxu Hu* (Zhejiang University) <a href="mailto:chenxuhu@zju.edu.cn">chenxuhu@zju.edu.cn</a></li>
+<li>Xu Tan (Microsoft Research) <a href="mailto:xuta@microsoft.com">xuta@microsoft.com</a></li>
+<li>Tao Qin (Microsoft Research) <a href="mailto:taoqin@microsoft.com">taoqin@microsoft.com</a></li>
+<li>Sheng Zhao (Microsoft Azure Speech) <a href="mailto:Sheng.Zhao@microsoft.com">Sheng.Zhao@microsoft.com</a></li>
+<li>Zhou Zhao (Zhejiang University) <a href="mailto:zhaozhou@zju.edu.cn">zhaozhou@zju.edu.cn</a></li>
+<li>Tie-Yan Liu (Microsoft Research) <a href="mailto:tyliu@microsoft.com">tyliu@microsoft.com</a></li>
+</ul>
+<p><small>* Equal contribution.</small></p>
+<h2 id="abstract">Abstract</h2>
+<p>Advanced text-to-speech (TTS) models such as FastSpeech~\cite{ren2019fastspeech} can synthesize speech significantly faster than previous autoregressive models with comparable quality. The training of FastSpeech model relies on an autoregressive teacher model for duration prediction (to provide more information as input) and knowledge distillation (to simplify the data distribution in output), which can ease the one-to-many mapping problem (i.e., multiple speech variations correspond to the same text) in TTS. However, FastSpeech has several disadvantages: 1) the teacher-student distillation pipeline is complicated, 2) the duration extracted from the teacher model is not accurate enough, and the target mel-spectrograms distilled from teacher model suffer from information loss due to data simplification, both of which limit the voice quality. In this paper, we propose FastSpeech 2, which addresses the issues in FastSpeech and better solves the one-to-many mapping problem in TTS by 1) directly training the model with ground-truth target instead of the simplified output from teacher, and 2) introducing more variation information of speech (e.g., pitch, energy and more accurate duration) as conditional inputs. Specifically, we extract duration, pitch and energy from speech waveform and directly take them as conditional inputs during training and use predicted values during inference. We further design FastSpeech 2s, which is the first attempt to directly generate speech waveform from text in parallel, enjoying the benefit of full end-to-end training and even faster inference than FastSpeech. Experimental results show that 1) FastSpeech 2 and 2s outperform FastSpeech in voice quality with much simplified training pipeline and reduced training time; 2) FastSpeech 2 and 2s can match the voice quality of autoregressive models while enjoying much faster inference speed.</p>
+<h2 id="audio-samples">Audio Samples</h2>
+<p>All of the audio samples use Parallel WaveGAN (PWG) as vocoder.</p>
+<h3 id="audio-quality">Audio Quality</h3>
+<p><em>The chapel yard led to the chapel, and on the staircase were two rooms frequently set apart for the king's witnesses,</em></p>
+<table><thead>
+<tr>
+<th style="text-align: center">GT</th>
+<th style="text-align: center">GT (PWG)</th>
+<th style="text-align: center">Transformer TTS</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_recording/0000000001.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_pwg/0000000001.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000001.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center">FastSpeech</th>
+<th style="text-align: center">FastSpeech 2</th>
+<th style="text-align: center">FastSpeech 2s</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000001.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_pitch_energy/0000000001.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/t2w_pitch_energy/0000000001.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+</tbody></table>
+<p><em>directly under the chapel, in which there were three cells, used either for the confinement of disorderly and refractory prisoners,</em></p>
+<table><thead>
+<tr>
+<th style="text-align: center">GT</th>
+<th style="text-align: center">GT (PWG)</th>
+<th style="text-align: center">Transformer TTS</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_recording/0000000002.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_pwg/0000000002.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000002.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center">FastSpeech</th>
+<th style="text-align: center">FastSpeech 2</th>
+<th style="text-align: center">FastSpeech 2s</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000002.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_pitch_energy/0000000002.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/t2w_pitch_energy/0000000002.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+</tbody></table>
+<p><em>Most of Jenson's letters are designed within a square,</em></p>
+<table><thead>
+<tr>
+<th style="text-align: center">GT</th>
+<th style="text-align: center">GT (PWG)</th>
+<th style="text-align: center">Transformer TTS</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_recording/0000000003.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_pwg/0000000003.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000003.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center">FastSpeech</th>
+<th style="text-align: center">FastSpeech 2</th>
+<th style="text-align: center">FastSpeech 2s</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000003.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_pitch_energy/0000000003.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/t2w_pitch_energy/0000000003.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+</tbody></table>
+<h2 id="our-related-works">Our Related Works</h2>
+<p><a href="https://speechresearch.github.io/fastspeech/">FastSpeech: Fast, Robust and Controllable Text to Speech</a></p>
 
 			</section>
 		</article>
