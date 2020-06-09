@@ -17,10 +17,9 @@
       <pubDate>Wed, 20 May 2020 15:30:00 +0901</pubDate>
       
       <guid>https://fastspeech2.github.io/fastspeech2/</guid>
-      <description>ArXiv: arXiv:2006.04558
-Reddit Discussions: Click me
-Authors  Yi Ren* (Zhejiang University) rayeren@zju.edu.cn Chenxu Hu* (Zhejiang University) chenxuhu@zju.edu.cn Xu Tan (Microsoft Research) xuta@microsoft.com Tao Qin (Microsoft Research) taoqin@microsoft.com Sheng Zhao (Microsoft Azure Speech) Sheng.Zhao@microsoft.com Zhou Zhao (Zhejiang University) zhaozhou@zju.edu.cn Tie-Yan Liu (Microsoft Research) tyliu@microsoft.com  * Equal contribution.
-Abstract Advanced text-to-speech (TTS) models such as FastSpeech~\cite{ren2019fastspeech} can synthesize speech significantly faster than previous autoregressive models with comparable quality. The training of FastSpeech model relies on an autoregressive teacher model for duration prediction (to provide more information as input) and knowledge distillation (to simplify the data distribution in output), which can ease the one-to-many mapping problem (i.</description>
+      <description>Audio Samples All of the audio samples use Parallel WaveGAN (PWG) as vocoder. For all audio samples, the background noise of LJSpeech is reduced using spectral subtraction.
+The chapel yard led to the chapel, and on the staircase were two rooms frequently set apart for the king&#39;s witnesses.
+  GT GT (PWG) Transformer TTS   Your browser does not support the audio element. Your browser does not support the audio element.</description>
     </item>
     
   </channel>
