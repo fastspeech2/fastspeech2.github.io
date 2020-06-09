@@ -30,9 +30,8 @@
             <h1 class="entry-title" itemprop="headline">FastSpeech 2: Fast and High-Quality End-to-End Text-to-Speech</h1>
 			
 			<section itemprop="entry-text">
-				<!-- Paper: <a href="../papers/fastspeech_2019.pdf">FastSpeech: Fast, Robust and Controllable Text to Speech</a> -->
-<!-- ArXiv: [arXiv:1905.09263](https://arxiv.org/abs/1905.09263) -->
-<!-- Reddit Discussions: [Click me](https://www.reddit.com/r/MachineLearning/comments/brzwi5/r_fastspeech_fast_robust_and_controllable_text_to/) -->
+				<p>ArXiv: <a href="https://arxiv.org/abs/2006.04558">arXiv:2006.04558</a></p>
+<p>Reddit Discussions: <a href="https://www.reddit.com/r/MachineLearning/comments/gzd0oq/200604558_fastspeech_2_fast_and_highquality/">Click me</a></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li>Yi Ren* (Zhejiang University) <a href="mailto:rayeren@zju.edu.cn">rayeren@zju.edu.cn</a></li>
@@ -47,7 +46,7 @@
 <h2 id="abstract">Abstract</h2>
 <p>Advanced text-to-speech (TTS) models such as FastSpeech~\cite{ren2019fastspeech} can synthesize speech significantly faster than previous autoregressive models with comparable quality. The training of FastSpeech model relies on an autoregressive teacher model for duration prediction (to provide more information as input) and knowledge distillation (to simplify the data distribution in output), which can ease the one-to-many mapping problem (i.e., multiple speech variations correspond to the same text) in TTS. However, FastSpeech has several disadvantages: 1) the teacher-student distillation pipeline is complicated, 2) the duration extracted from the teacher model is not accurate enough, and the target mel-spectrograms distilled from teacher model suffer from information loss due to data simplification, both of which limit the voice quality. In this paper, we propose FastSpeech 2, which addresses the issues in FastSpeech and better solves the one-to-many mapping problem in TTS by 1) directly training the model with ground-truth target instead of the simplified output from teacher, and 2) introducing more variation information of speech (e.g., pitch, energy and more accurate duration) as conditional inputs. Specifically, we extract duration, pitch and energy from speech waveform and directly take them as conditional inputs during training and use predicted values during inference. We further design FastSpeech 2s, which is the first attempt to directly generate speech waveform from text in parallel, enjoying the benefit of full end-to-end training and even faster inference than FastSpeech. Experimental results show that 1) FastSpeech 2 and 2s outperform FastSpeech in voice quality with much simplified training pipeline and reduced training time; 2) FastSpeech 2 and 2s can match the voice quality of autoregressive models while enjoying much faster inference speed.</p>
 <h2 id="audio-samples">Audio Samples</h2>
-<p>All of the audio samples use Parallel WaveGAN (PWG) as vocoder.</p>
+<p>All of the audio samples use Parallel WaveGAN (PWG) as vocoder. For all audio samples, the background noise of LJSpeech is reduced using spectral subtraction.</p>
 <h3 id="audio-quality">Audio Quality</h3>
 <p><em>The chapel yard led to the chapel, and on the staircase were two rooms frequently set apart for the king's witnesses.</em></p>
 <table><thead>
@@ -59,7 +58,7 @@
 <tr>
 <td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_recording/0000000001.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_pwg/0000000001.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
-<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000001.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/transtts/0000000001.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
 </tr>
 </tbody></table>
 <table><thead>
@@ -84,7 +83,7 @@
 <tr>
 <td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_recording/0000000002.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_pwg/0000000002.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
-<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000002.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/transtts/0000000002.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
 </tr>
 </tbody></table>
 <table><thead>
@@ -109,7 +108,7 @@
 <tr>
 <td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_recording/0000000003.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_pwg/0000000003.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
-<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000003.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/transtts/0000000003.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
 </tr>
 </tbody></table>
 <table><thead>
@@ -134,7 +133,7 @@
 <tr>
 <td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_recording/0000000004.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_pwg/0000000004.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
-<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000004.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/transtts/0000000004.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
 </tr>
 </tbody></table>
 <table><thead>
@@ -159,7 +158,7 @@
 <tr>
 <td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_recording/0000000005.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls" ><source src="../audio/gt_pwg/0000000005.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
-<td style="text-align: center"><audio controls="controls" ><source src="../audio/fs_kd_attention/0000000005.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="../audio/transtts/0000000005.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
 </tr>
 </tbody></table>
 <table><thead>
