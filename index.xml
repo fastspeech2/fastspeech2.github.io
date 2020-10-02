@@ -18,7 +18,8 @@
       
       <guid>https://fastspeech2.github.io/fastspeech2/</guid>
       <description>Audio Samples All of the audio samples use Parallel WaveGAN (PWG) as vocoder. For all audio samples, the background noise of LJSpeech is reduced using spectral subtraction.
-Comparison with Other Models This type was introduced into England by Wynkyn de Worde, Caxton&#39;s successor,
+Comparison with Other Models 
+Were the leaders in this luckless change, though our own Baskerville, who was at work some years before them, went much on the same lines.
   GT GT (PWG) Transformer TTS          FastSpeech FastSpeech 2 FastSpeech 2s</description>
     </item>
     
