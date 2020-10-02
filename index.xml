@@ -18,8 +18,8 @@
       
       <guid>https://fastspeech2.github.io/fastspeech2/</guid>
       <description>Audio Samples All of the audio samples use Parallel WaveGAN (PWG) as vocoder. For all audio samples, the background noise of LJSpeech is reduced using spectral subtraction.
-The chapel yard led to the chapel, and on the staircase were two rooms frequently set apart for the king&#39;s witnesses.
-  GT GT (PWG) Transformer TTS   Your browser does not support the audio element. Your browser does not support the audio element.</description>
+Comparison with Other Models This type was introduced into England by Wynkyn de Worde, Caxton&#39;s successor,
+  GT GT (PWG) Transformer TTS          FastSpeech FastSpeech 2 FastSpeech 2s</description>
     </item>
     
   </channel>
